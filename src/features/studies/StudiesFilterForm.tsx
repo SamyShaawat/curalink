@@ -1,6 +1,6 @@
 import { Calendar } from 'lucide-react';
-import { InputGroup } from './components/InputGroup';
-import { SelectGroup } from './components/SelectGroup';
+import { InputGroup } from '@components/form/InputGroup';
+import { SelectGroup } from '@components/form/SelectGroup';
 
 export function StudiesFilterForm() {
   return (
