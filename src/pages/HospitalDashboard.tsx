@@ -77,14 +77,22 @@ export function HospitalDashboard() {
       <HospitalStatsGrid stats={data.stats} />
 
       {/* Charts Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[280px]">
-        <StudiesOverTimeChart data={data.line} />
-        <ModalitySplitChart data={data.split} />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 h-[300px] md:h-[350px]">
+          <StudiesOverTimeChart data={data.line} />
+        </div>
+        <div className="h-[300px] md:h-[350px]">
+          <ModalitySplitChart data={data.split} />
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[260px] pt-4">
-        <StudiesByModalityChart data={data.bar} />
-        <TopModalitiesRadialChart data={data.pie} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
+        <div className="h-[300px] md:h-[350px]">
+          <StudiesByModalityChart data={data.bar} />
+        </div>
+        <div className="h-[300px] md:h-[350px]">
+          <TopModalitiesRadialChart data={data.pie} />
+        </div>
       </div>
     </div>
   );

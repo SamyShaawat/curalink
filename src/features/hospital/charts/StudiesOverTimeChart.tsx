@@ -2,11 +2,11 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianG
 
 export function StudiesOverTimeChart({ data }: { data: { name: string; val: number }[] }) {
   return (
-    <div className="col-span-2 bg-white rounded-2xl p-4 sm:p-6 shadow-md border border-gray-100 flex flex-col relative overflow-hidden">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border border-gray-100 flex flex-col relative overflow-hidden h-full">
       <h3 className="font-bold text-gray-700 text-xs sm:text-sm mb-3 sm:mb-4 flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-indigo-400"></div> Studies Over Time
       </h3>
-      <div className="flex-1 w-full h-full min-h-0 min-h-[200px] sm:min-h-[250px]">
+      <div className="flex-1 w-full min-h-0">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 0, left: -10, right: 10, bottom: 0 }}>
             <defs>

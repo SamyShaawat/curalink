@@ -4,11 +4,11 @@ const COLORS = ['#1CA7BD', '#F97316', '#1A919E', '#6366F1', '#10B981'];
 
 export function ModalitySplitChart({ data }: { data: { name: string; value: number }[] }) {
   return (
-    <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border border-gray-100 flex flex-col justify-between relative overflow-hidden">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border border-gray-100 flex flex-col justify-between relative overflow-hidden h-full">
       <h3 className="font-bold text-gray-700 text-xs sm:text-sm mb-2 sm:mb-4 flex items-center gap-2 z-10">
         <div className="w-2 h-2 rounded-full bg-orange-400"></div> Modality Split
       </h3>
-      <div className="flex-1 flex flex-col items-center justify-center min-h-[180px] sm:min-h-[200px]">
+      <div className="flex-1 flex flex-col items-center justify-center min-h-0">
         <div className="relative w-32 h-32 sm:w-40 sm:h-40">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
