@@ -62,7 +62,7 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
   };
 
   return (
-    <div className="w-64 bg-white/40 backdrop-blur-xl h-full lg:h-screen border-r border-white/40 flex flex-col shadow-[8px_0_32px_-12px_rgba(0,0,0,0.1)] flex-shrink-0 relative z-20">
+    <div className="w-64 bg-white h-full lg:h-screen border-r border-gray-100 flex flex-col shadow-sm flex-shrink-0 relative z-20">
       <div className="p-6 hidden lg:block">
         <div className="flex items-center gap-2">
           <div className="text-teal-600">
@@ -110,7 +110,7 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
                         className={twMerge(
                           "block py-2.5 px-4 rounded-xl text-sm font-semibold transition-all my-0.5",
                           isActive 
-                            ? "bg-[#EAF5F5] text-[#1A919E]" 
+                            ? "bg-[#1A919E] text-white" 
                             : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
                         )}
                       >

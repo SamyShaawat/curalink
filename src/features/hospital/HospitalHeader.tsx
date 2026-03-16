@@ -44,14 +44,14 @@ export function HospitalHeader({ currentPeriod, onPeriodChange }: HospitalHeader
               "px-3 md:px-4 py-1.5 rounded-full transition-all duration-300",
               currentPeriod === period
                 ? "bg-[#1A919E] text-white shadow-md shadow-[#1A919E]/20"
-                : "bg-white/40 backdrop-blur-md text-gray-400 hover:text-gray-700 border border-white/40 hover:bg-white/60"
+                : "bg-white text-gray-500 hover:text-gray-700 border border-gray-200 hover:bg-gray-50 shadow-sm"
             )}
           >
             {period}
           </button>
         ))}
         <div className="hidden sm:block w-[1px] h-8 bg-gray-200 mx-1 md:mx-2 self-center"></div>
-        <button className="px-3 md:px-4 py-1.5 rounded-full bg-white/40 backdrop-blur-md text-[#1A919E] flex items-center gap-2 shadow-sm border border-white/40 hover:bg-white/60 transition-colors ml-auto sm:ml-0">
+        <button className="px-3 md:px-4 py-1.5 rounded-full bg-white text-[#1A919E] flex items-center gap-2 shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors ml-auto sm:ml-0">
           <Settings className="w-4 h-4" /> {AppConstants.BUTTON_FILTER}
         </button>
       </div>

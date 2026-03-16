@@ -4,7 +4,7 @@ const COLORS = ['#1CA7BD', '#F97316', '#1A919E', '#6366F1', '#10B981'];
 
 export function ModalitySplitChart({ data }: { data: { name: string; value: number }[] }) {
   return (
-    <div className="bg-white/40 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/40 flex flex-col justify-between relative overflow-hidden">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border border-gray-100 flex flex-col justify-between relative overflow-hidden">
       <h3 className="font-bold text-gray-700 text-xs sm:text-sm mb-2 sm:mb-4 flex items-center gap-2 z-10">
         <div className="w-2 h-2 rounded-full bg-orange-400"></div> Modality Split
       </h3>

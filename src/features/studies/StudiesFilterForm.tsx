@@ -4,7 +4,7 @@ import { SelectGroup } from '@components/form/SelectGroup';
 
 export function StudiesFilterForm() {
   return (
-    <div className="bg-white/40 backdrop-blur-xl rounded-2xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/40">
+    <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <InputGroup label="Patient Family Name" placeholder="Enter family name" />
         <InputGroup label="Patient ID" placeholder="Enter Patient ID" />

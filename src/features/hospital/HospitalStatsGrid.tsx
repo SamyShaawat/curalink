@@ -21,7 +21,7 @@ export function HospitalStatsGrid({ stats }: HospitalStatsGridProps) {
       <StatCard label={AppConstants.TOTAL_SERIES} val={stats.series} icon={<Copy className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>} />
       <StatCard label={AppConstants.TOTAL_IMAGES} val={stats.images} sub="Instances" icon={<div className="font-serif opacity-40 text-[#1A919E] text-lg">A</div>} />
       
-      <div className="bg-white/40 backdrop-blur-xl rounded-xl p-4 md:p-5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)] border border-white/40 h-full flex flex-col justify-between group hover:shadow-md transition-shadow hover:bg-white/60">
+      <div className="bg-white rounded-xl p-4 md:p-5 shadow-sm border border-gray-100 h-full flex flex-col justify-between group hover:shadow-md transition-shadow">
           <div className="flex justify-between">
             <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest leading-tight">{AppConstants.MODALITIES}</span>
             <span className="text-lg opacity-40 text-[#1A919E]" role="img" aria-label="medical">⚕</span>
@@ -32,7 +32,7 @@ export function HospitalStatsGrid({ stats }: HospitalStatsGridProps) {
           </div>
       </div>
 
-      <div className="bg-white/40 backdrop-blur-xl rounded-xl p-4 md:p-5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)] border border-white/40 h-full flex flex-col justify-between max-w-sm col-span-2 md:col-span-1 lg:col-span-1 group hover:shadow-md transition-shadow hover:bg-white/60">
+      <div className="bg-white rounded-xl p-4 md:p-5 shadow-sm border border-gray-100 h-full flex flex-col justify-between max-w-sm col-span-2 md:col-span-1 lg:col-span-1 group hover:shadow-md transition-shadow">
           <div className="flex justify-between">
             <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest leading-tight">{AppConstants.ACTIVE_DAYS}</span>
             <Calendar className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>
@@ -48,7 +48,7 @@ export function HospitalStatsGrid({ stats }: HospitalStatsGridProps) {
 
 function StatCard({ label, val, sub, icon }: { label: string; val: string; sub?: string; icon: React.ReactNode }) {
   return (
-    <div className="bg-white/40 backdrop-blur-xl rounded-xl p-5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)] border border-white/40 h-full flex flex-col justify-between group hover:shadow-md transition-all hover:bg-white/60">
+    <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 h-full flex flex-col justify-between group hover:shadow-md transition-all">
       <div className="flex justify-between items-start">
         <span className="text-xs font-bold text-gray-400 uppercase tracking-widest overflow-hidden text-ellipsis whitespace-nowrap leading-tight">{label}</span>
         {icon}

@@ -8,7 +8,7 @@ export function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-[#EAF5F5] font-sans antialiased relative overflow-hidden">
+    <div className="flex min-h-screen bg-[#F4F9F9] font-sans antialiased relative overflow-hidden">
       {/* Dynamic Background Elements for Glassmorphism */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-[10%] -right-[5%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#1A919E]/20 to-transparent blur-[120px]"></div>

@@ -2,7 +2,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianG
 
 export function StudiesOverTimeChart({ data }: { data: { name: string; val: number }[] }) {
   return (
-    <div className="col-span-2 bg-white/40 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/40 flex flex-col relative overflow-hidden">
+    <div className="col-span-2 bg-white rounded-2xl p-4 sm:p-6 shadow-md border border-gray-100 flex flex-col relative overflow-hidden">
       <h3 className="font-bold text-gray-700 text-xs sm:text-sm mb-3 sm:mb-4 flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-indigo-400"></div> Studies Over Time
       </h3>
