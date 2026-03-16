@@ -1,0 +1,55 @@
+import { Sidebar } from '@components/Sidebar';
+import { Outlet } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+
+export function Layout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  return (
+    <div className="flex min-h-screen bg-[#F3F6F8] font-sans antialiased relative overflow-hidden">
+      {/* Background decoration lines (wave abstraction) */}
+      <div className="absolute top-0 right-0 w-[80%] h-full opacity-40 pointer-events-none overflow-hidden hidden md:block">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" className="w-full h-full text-teal-200 fill-current opacity-30">
+          <path d="M0 1000C150 700 300 900 600 500C900 100 1000 0 1000 0L1000 1000Z"></path>
+          <path d="M200 1000C300 600 500 800 800 400C1000 100 1000 0 1000 0L1000 1000Z" className="opacity-50 text-teal-100"></path>
+        </svg>
+      </div>
+
+      {/* Mobile Header */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 z-40 shadow-sm">
+        <div className="flex items-center gap-2">
+          <svg viewBox="0 0 100 100" className="w-8 h-8 fill-current text-teal-600">
+            <path d="M50 10C27.9 10 10 27.9 10 50s17.9 40 40 40 40-17.9 40-40S72.1 10 50 10zm0 70C33.4 80 20 66.6 20 50s13.4-30 30-30 30 13.4 30 30-13.4 30-30 30z"></path>
+            <path d="M50 30c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 30c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z"></path>
+          </svg>
+          <div>
+            <h1 className="text-lg font-bold text-teal-600 tracking-tight leading-tight">CuraLink</h1>
+          </div>
+        </div>
+        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-2 text-gray-500 hover:text-teal-600 hover:bg-teal-50 rounded-full transition-colors">
+          {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-[#A0AEC0]/40 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* Sidebar Wrapper */}
+      <div className={`fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <Sidebar onClose={() => setIsSidebarOpen(false)} />
+      </div>
+
+      <main className="flex-1 flex flex-col z-10 w-full h-screen overflow-y-auto px-4 lg:px-6 pt-20 lg:pt-6">
+        <div className="max-w-[1400px] w-full mx-auto pb-10">
+          <Outlet />
+        </div>
+      </main>
+    </div>
+  );
+}
