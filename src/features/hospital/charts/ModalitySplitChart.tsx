@@ -2,7 +2,7 @@ import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
 export function ModalitySplitChart({ data }: { data: { name: string; value: number }[] }) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between relative overflow-hidden">
+    <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-sm border border-white/50 flex flex-col justify-between relative overflow-hidden">
       <h3 className="font-bold text-gray-700 text-sm mb-2 flex items-center gap-2 z-10">
         <div className="w-2 h-2 rounded-full bg-orange-400"></div> Modality Split
       </h3>
