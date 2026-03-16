@@ -3,8 +3,20 @@ import { Link } from 'react-router-dom';
 import { RouteConstants } from '@enums/route.constants';
 import { TargetIcon } from '@components/common/TargetIcon';
 import { AppConstants } from '@enums/app.constants';
+import { twMerge } from 'tailwind-merge';
 
-export function HospitalHeader() {
+interface HospitalHeaderProps {
+  currentPeriod: string;
+  onPeriodChange: (period: string) => void;
+}
+
+export function HospitalHeader({ currentPeriod, onPeriodChange }: HospitalHeaderProps) {
+  const periods = [
+    AppConstants.PERIOD_7,
+    AppConstants.PERIOD_30,
+    AppConstants.PERIOD_90
+  ];
+
   return (
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div className="flex items-start md:items-center gap-3 md:gap-4">
@@ -24,11 +36,22 @@ export function HospitalHeader() {
       </div>
 
       <div className="flex flex-wrap items-center gap-2 text-sm font-bold mt-2 md:mt-0">
-        <button className="px-3 md:px-4 py-1.5 rounded-full bg-white text-gray-400 hover:text-gray-700 shadow-sm border border-gray-100 transition-colors">7d</button>
-        <button className="px-3 md:px-4 py-1.5 rounded-full bg-[#1A919E] text-white shadow-sm shadow-[#1A919E]/20">30d</button>
-        <button className="px-3 md:px-4 py-1.5 rounded-full bg-white text-gray-400 hover:text-gray-700 shadow-sm border border-gray-100 transition-colors">90d</button>
+        {periods.map((period) => (
+          <button
+            key={period}
+            onClick={() => onPeriodChange(period)}
+            className={twMerge(
+              "px-3 md:px-4 py-1.5 rounded-full transition-all duration-300",
+              currentPeriod === period
+                ? "bg-[#1A919E] text-white shadow-md shadow-[#1A919E]/20"
+                : "bg-white/40 backdrop-blur-md text-gray-400 hover:text-gray-700 border border-white/40 hover:bg-white/60"
+            )}
+          >
+            {period}
+          </button>
+        ))}
         <div className="hidden sm:block w-[1px] h-8 bg-gray-200 mx-1 md:mx-2 self-center"></div>
-        <button className="px-3 md:px-4 py-1.5 rounded-full bg-white text-[#1A919E] flex items-center gap-2 shadow-sm border border-[#1A919E]/30 hover:bg-[#EAF5F5] transition-colors ml-auto sm:ml-0">
+        <button className="px-3 md:px-4 py-1.5 rounded-full bg-white/40 backdrop-blur-md text-[#1A919E] flex items-center gap-2 shadow-sm border border-white/40 hover:bg-white/60 transition-colors ml-auto sm:ml-0">
           <Settings className="w-4 h-4" /> {AppConstants.BUTTON_FILTER}
         </button>
       </div>

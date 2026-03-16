@@ -2,13 +2,24 @@ import { LayoutDashboard, Users, Copy, Calendar } from 'lucide-react';
 import React from 'react';
 import { AppConstants } from '@enums/app.constants';
 
-export function HospitalStatsGrid() {
+interface HospitalStatsGridProps {
+  stats: {
+    studies: string;
+    patients: string;
+    series: string;
+    images: string;
+    modalities: string;
+    activeDays: string;
+  }
+}
+
+export function HospitalStatsGrid({ stats }: HospitalStatsGridProps) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-      <StatCard label={AppConstants.TOTAL_STUDIES} val="701" icon={<LayoutDashboard className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>} />
-      <StatCard label={AppConstants.TOTAL_PATIENTS} val="701" icon={<Users className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>} />
-      <StatCard label={AppConstants.TOTAL_SERIES} val="4,958" icon={<Copy className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>} />
-      <StatCard label={AppConstants.TOTAL_IMAGES} val="635,205" sub="Instances" icon={<div className="font-serif opacity-40 text-[#1A919E] text-lg">A</div>} />
+      <StatCard label={AppConstants.TOTAL_STUDIES} val={stats.studies} icon={<LayoutDashboard className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>} />
+      <StatCard label={AppConstants.TOTAL_PATIENTS} val={stats.patients} icon={<Users className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>} />
+      <StatCard label={AppConstants.TOTAL_SERIES} val={stats.series} icon={<Copy className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>} />
+      <StatCard label={AppConstants.TOTAL_IMAGES} val={stats.images} sub="Instances" icon={<div className="font-serif opacity-40 text-[#1A919E] text-lg">A</div>} />
       
       <div className="bg-white/40 backdrop-blur-xl rounded-xl p-4 md:p-5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)] border border-white/40 h-full flex flex-col justify-between group hover:shadow-md transition-shadow hover:bg-white/60">
           <div className="flex justify-between">
@@ -16,7 +27,7 @@ export function HospitalStatsGrid() {
             <span className="text-lg opacity-40 text-[#1A919E]" role="img" aria-label="medical">⚕</span>
           </div>
           <div className="mt-4">
-            <div className="text-2xl md:text-3xl font-extrabold text-gray-800">1</div>
+            <div className="text-2xl md:text-3xl font-extrabold text-gray-800">{stats.modalities}</div>
             <div className="text-[9px] md:text-[10px] text-gray-400 font-bold mt-1">Distinct types</div>
           </div>
       </div>
@@ -27,7 +38,7 @@ export function HospitalStatsGrid() {
             <Calendar className="w-5 h-5 opacity-40 text-[#1A919E]" strokeWidth={2.5}/>
           </div>
           <div className="mt-4">
-            <div className="text-2xl md:text-3xl font-extrabold text-gray-800">21</div>
+            <div className="text-2xl md:text-3xl font-extrabold text-gray-800">{stats.activeDays}</div>
             <div className="text-[9px] md:text-[10px] text-gray-400 font-bold mt-1">With studies</div>
           </div>
       </div>

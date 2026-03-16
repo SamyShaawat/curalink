@@ -18,4 +18,6 @@ export class RouteConstants {
   static readonly EXPORT = '/export';
   
   static readonly USERS = '/users';
+  static readonly SETTINGS = '/settings';
+  static readonly LOGOUT = '/logout';
 }
