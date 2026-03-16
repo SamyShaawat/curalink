@@ -1,15 +1,72 @@
 @import "tailwindcss";
 
+/* CuraLink Design System - Exact colors from Figma */
 @theme {
-  --color-primary-teal: #1A919E;
-  --color-dark-teal: #127173;
-  --color-light-teal: #EDF7F8;
-  --color-bg-teal: #F4F9F9;
-  --color-text-dark: #2F3E46;
-  --color-text-light: #5A7E85;
+  /* Primary Brand Colors */
+  --color-primary: #14B8A6;
+  --color-primary-dark: #0D9488;
+  --color-primary-light: #CCFBF1;
+  
+  /* Background Colors */
+  --color-bg-main: #F0F9F9;
+  --color-bg-card: #FFFFFF;
+  --color-bg-sidebar: #FFFFFF;
+  --color-bg-hover: #F0FDFD;
+  
+  /* Text Colors */
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-text-label: #4B5563;
+  
+  /* Border Colors */
+  --color-border-light: #E5F3F3;
+  --color-border: #E0F2F1;
+  
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-success-bg: #D1FAE5;
+  
+  /* Accent Colors */
+  --color-accent-pink: #EC4899;
+  --color-accent-purple: #8B5CF6;
+  
+  /* Chart Colors */
+  --color-chart-primary: #14B8A6;
+  --color-chart-secondary: #06B6D4;
+  --color-chart-tertiary: #14B8A6;
 }
 
 body {
-  background-color: var(--color-bg-teal);
-  color: var(--color-text-dark);
+  background: linear-gradient(135deg, var(--color-bg-main) 0%, #E0F7F7 100%);
+  color: var(--color-text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -10px rgba(20, 184, 166, 0.15);
+}
+
+/* Gradient background pattern */
+.bg-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.05) 0%, transparent 50%);
 }

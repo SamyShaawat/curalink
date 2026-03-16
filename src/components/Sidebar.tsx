@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Compass, Settings, Shield, LogOut, ChevronDown, ChevronUp } from 'lucide-react';
+import { LayoutDashboard, Compass, Settings, Shield, LogOut, ChevronDown, ChevronUp, Building2, Search, Users, FileText, Server, GitBranch, FileCheck, Export, UsersRound } from 'lucide-react';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { RouteConstants } from '@enums/route.constants';
@@ -41,13 +41,6 @@ const navGroups = [
     items: [
       { name: 'Users', path: RouteConstants.USERS }
     ]
-  },
-  {
-    title: 'Settings',
-    icon: Settings,
-    items: [
-      { name: 'App Settings', path: RouteConstants.SETTINGS }
-    ]
   }
 ];
 
@@ -56,61 +49,63 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
   const [openGroups, setOpenGroups] = useState<string[]>(['Dashboard', 'Navigation', 'Configuration']);
 
   const toggleGroup = (title: string) => {
-    setOpenGroups(prev => 
+    setOpenGroups(prev =>
       prev.includes(title) ? prev.filter(t => t !== title) : [...prev, title]
     );
   };
 
   return (
-    <div className="w-64 bg-white h-full lg:h-screen border-r border-gray-100 flex flex-col shadow-sm flex-shrink-0 relative z-20">
-      <div className="p-6 hidden lg:block">
-        <div className="flex items-center gap-2">
-          <div className="text-teal-600">
-            {/* Logo placeholder, using an icon for now */}
-            <svg viewBox="0 0 100 100" className="w-10 h-10 fill-current">
+    <div className="w-[280px] bg-white h-full lg:h-screen border-r border-[#E5F3F3] flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] flex-shrink-0 relative z-20">
+      {/* Logo Section */}
+      <div className="p-6 border-b border-[#E5F3F3]">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#14B8A6] to-[#0D9488] flex items-center justify-center shadow-lg shadow-[#14B8A6]/20">
+            <svg viewBox="0 0 100 100" className="w-7 h-7 fill-white">
               <path d="M50 10C27.9 10 10 27.9 10 50s17.9 40 40 40 40-17.9 40-40S72.1 10 50 10zm0 70C33.4 80 20 66.6 20 50s13.4-30 30-30 30 13.4 30 30-13.4 30-30 30z"></path>
               <path d="M50 30c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 30c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z"></path>
             </svg>
           </div>
           <div>
-            <h1 className="text-xl font-bold text-teal-600 tracking-tight leading-tight">{AppConstants.APP_NAME}</h1>
-            <p className="text-[10px] text-teal-400 font-medium">{AppConstants.APP_SLOGAN}</p>
+            <h1 className="text-xl font-bold text-[#14B8A6] tracking-tight">{AppConstants.APP_NAME}</h1>
+            <p className="text-[10px] text-gray-400 font-medium">where care connects</p>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-4 py-2 space-y-2 no-scrollbar">
+      {/* Navigation */}
+      <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1 no-scrollbar">
         {navGroups.map((group) => {
           const isOpen = openGroups.includes(group.title);
           const GroupIcon = group.icon;
           return (
-            <div key={group.title} className="mb-2">
-              <button 
+            <div key={group.title} className="mb-1">
+              <button
                 onClick={() => toggleGroup(group.title)}
-                className={twMerge("w-full flex items-center justify-between p-2 rounded-lg font-medium text-sm transition-colors", 
-                  "text-teal-600 hover:bg-teal-50"
+                className={twMerge(
+                  "w-full flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-sm transition-all",
+                  "text-gray-600 hover:bg-[#F0FDFD] hover:text-[#14B8A6]"
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <GroupIcon className="w-5 h-5 text-[#1A919E]" strokeWidth={2.5} />
-                  <span className="font-bold text-gray-700">{group.title}</span>
+                  <GroupIcon className="w-5 h-5 text-[#14B8A6]" strokeWidth={2} />
+                  <span className="font-semibold">{group.title}</span>
                 </div>
                 {isOpen ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
               </button>
-              
+
               {isOpen && (
-                <div className="mt-1 ml-4 pl-4 border-l-2 border-gray-100 space-y-1">
+                <div className="mt-1 ml-4 pl-3 border-l-2 border-[#E5F3F3] space-y-0.5">
                   {group.items.map(item => {
                     const isActive = location.pathname === item.path || (location.pathname.startsWith(RouteConstants.HOSPITAL) && item.path === RouteConstants.HOSPITAL_AIN_SHAMS);
                     return (
-                      <Link 
+                      <Link
                         key={item.name}
                         to={item.path}
                         onClick={onClose}
                         className={twMerge(
-                          "block py-2.5 px-4 rounded-xl text-sm font-semibold transition-all my-0.5",
-                          isActive 
-                            ? "bg-[#1A919E] text-white" 
+                          "block py-2 px-3 rounded-lg text-sm font-medium transition-all",
+                          isActive
+                            ? "bg-[#14B8A6] text-white shadow-md shadow-[#14B8A6]/20"
                             : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
                         )}
                       >
@@ -125,13 +120,21 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
         })}
       </div>
 
-      <div className="p-4 border-t border-gray-100 bg-gray-50/50">
-        <div className="text-sm font-semibold text-gray-700">admin</div>
-        <div className="text-xs text-gray-500 mb-4">(Curalink mode)</div>
-        <Link 
+      {/* User Section */}
+      <div className="p-4 border-t border-[#E5F3F3] bg-gradient-to-t from-gray-50/80 to-white">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#14B8A6] to-[#0D9488] flex items-center justify-center text-white font-bold text-sm shadow-md">
+            A
+          </div>
+          <div className="flex-1">
+            <div className="text-sm font-bold text-gray-700">admin</div>
+            <div className="text-xs text-gray-400">(Curalink mode)</div>
+          </div>
+        </div>
+        <Link
           to={RouteConstants.LOGOUT}
           onClick={onClose}
-          className="flex items-center gap-2 text-teal-600 font-medium text-sm hover:text-teal-700 w-full transition-colors"
+          className="flex items-center gap-2.5 text-gray-600 font-medium text-sm hover:text-[#14B8A6] hover:bg-[#F0FDFD] w-full px-3 py-2 rounded-lg transition-all"
         >
           <LogOut className="w-4 h-4" />
           Logout

@@ -46,12 +46,12 @@ const hospitals = [
 export function NetworkDashboard() {
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 w-full">
-      <HeaderBanner 
-        title="Network Dashboard" 
-        icon={<Target className="w-8 h-8 text-[#1A919E]" />} 
+      <HeaderBanner
+        title="Network Dashboard"
+        icon={<Target className="w-6 h-6 text-[#14B8A6]" strokeWidth={2} />}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {stats.map((stat, i) => (
           <NetworkStatCard key={i} stat={stat} />
         ))}
@@ -59,7 +59,7 @@ export function NetworkDashboard() {
 
       <NetworkSearch count={hospitals.length} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {hospitals.map(hospital => (
           <HospitalCard key={hospital.id} hospital={hospital} />
         ))}
