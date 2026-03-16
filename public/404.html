@@ -10,17 +10,11 @@
       var path = window.location.pathname;
       var search = window.location.search;
       var hash = window.location.hash;
-      
-      // Build the full path within /curalink/ base
-      // e.g., /curalink/hospital/2 -> /curalink/hospital/2
-      var fullPath = path + search + hash;
-      
-      // Store for React to potentially use
-      sessionStorage.redirect = fullPath;
-      
-      // Redirect to index.html with the path as a hash fragment
-      // React Router with basename will handle this
-      window.location.href = '/curalink/index.html' + path.replace('/curalink', '') + search + hash;
+
+      // Redirect to index.html while preserving path in hash
+      // This allows React Router to read the path from hash and use history.replaceState
+      var newPath = path.replace('/curalink', '');
+      window.location.href = '/curalink/?path=' + encodeURIComponent(newPath + search + hash);
     })();
   </script>
 </head>
