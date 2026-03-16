@@ -18,7 +18,7 @@ const dashboardData: Record<string, any> = {
       activeDays: '7'
     },
     line: [
-      { name: '02-20', val: 12 }, { name: '02-21', val: 26 }, { name: '02-22', val: 12 }, 
+      { name: '02-20', val: 12 }, { name: '02-21', val: 26 }, { name: '02-22', val: 12 },
       { name: '02-23', val: 4 }, { name: '02-24', val: 35 }, { name: '02-25', val: 55 },
       { name: '02-26', val: 8 },
     ],
@@ -77,20 +77,20 @@ export function HospitalDashboard() {
       <HospitalStatsGrid stats={data.stats} />
 
       {/* Charts Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 h-[300px] md:h-[350px]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div className="lg:col-span-2 h-[320px] md:h-[350px]">
           <StudiesOverTimeChart data={data.line} />
         </div>
-        <div className="h-[300px] md:h-[350px]">
+        <div className="h-[320px] md:h-[350px]">
           <ModalitySplitChart data={data.split} />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
-        <div className="h-[300px] md:h-[350px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 pt-4">
+        <div className="h-[320px] md:h-[350px]">
           <StudiesByModalityChart data={data.bar} />
         </div>
-        <div className="h-[300px] md:h-[350px]">
+        <div className="h-[320px] md:h-[350px]">
           <TopModalitiesRadialChart data={data.pie} />
         </div>
       </div>
