@@ -4,28 +4,6 @@ Welcome to the CuraLink Dashboard project! This is a modern, responsive React ap
 
 **🌐 Live Demo:** [https://samyshaawat.github.io/curalink/](https://samyshaawat.github.io/curalink/)
 
-## 🚀 Features
-
-- Modern React 19 with TypeScript
-- Responsive dashboard design
-- Hospital network management
-- Studies and patient data visualization
-- Interactive charts with Recharts
-- Tailwind CSS v4 styling
-- React Router for navigation
-
-## 🛠️ Tech Stack
-
-| Category | Technology |
-|----------|------------|
-| **Framework** | React 19 + TypeScript |
-| **Build Tool** | Vite + Nx |
-| **Styling** | Tailwind CSS v4 |
-| **Routing** | React Router v6 |
-| **Charts** | Recharts |
-| **Package Manager** | pnpm |
-| **Deployment** | GitHub Pages |
-
 ## Getting Started Locally
 
 Follow these instructions to run the application on your local machine.
@@ -73,29 +51,3 @@ pnpm nx build curalink
 
 The resulting artifacts will be placed in the `dist/curalink/` directory, ready to be deployed.
 
-## 📁 Project Structure
-
-```
-curalink/
-├── src/
-│   ├── app/              # Main application component
-│   ├── components/       # Shared UI components
-│   ├── features/         # Feature-specific components
-│   │   ├── hospital/     # Hospital dashboard components
-│   │   ├── network/      # Network dashboard components
-│   │   └── studies/      # Studies page components
-│   ├── pages/            # Page components
-│   ├── enums/            # Constants and enums
-│   └── styles.css        # Global styles
-├── public/               # Static assets
-├── .github/workflows/    # CI/CD workflows
-└── dist/                 # Production build output
-```
-
-## 🚢 Deployment
-
-This project is automatically deployed to GitHub Pages on every push to the `main` branch via GitHub Actions.
-
-## 📄 License
-
-MIT
