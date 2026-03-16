@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "deploy": "gh-pages -d dist/curalink"
   },
   "nx": {
     "includedScripts": []
@@ -50,6 +51,7 @@
     "eslint-plugin-jsx-a11y": "6.10.1",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "5.0.0",
+    "gh-pages": "^6.3.0",
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
     "nx": "22.5.4",
