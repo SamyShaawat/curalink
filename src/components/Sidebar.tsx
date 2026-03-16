@@ -41,6 +41,13 @@ const navGroups = [
     items: [
       { name: 'Users', path: RouteConstants.USERS }
     ]
+  },
+  {
+    title: 'Settings',
+    icon: Settings,
+    items: [
+      { name: 'App Settings', path: RouteConstants.SETTINGS }
+    ]
   }
 ];
 
@@ -121,10 +128,14 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
       <div className="p-4 border-t border-gray-100 bg-gray-50/50">
         <div className="text-sm font-semibold text-gray-700">admin</div>
         <div className="text-xs text-gray-500 mb-4">(Curalink mode)</div>
-        <button className="flex items-center gap-2 text-teal-600 font-medium text-sm hover:text-teal-700 w-full transition-colors">
+        <Link 
+          to={RouteConstants.LOGOUT}
+          onClick={onClose}
+          className="flex items-center gap-2 text-teal-600 font-medium text-sm hover:text-teal-700 w-full transition-colors"
+        >
           <LogOut className="w-4 h-4" />
           Logout
-        </button>
+        </Link>
       </div>
     </div>
   );

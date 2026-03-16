@@ -17,6 +17,8 @@ export function App() {
             <Route path={RouteConstants.DASHBOARD} element={<NetworkDashboard />} />
             <Route path={RouteConstants.STUDIES} element={<StudiesPage />} />
             <Route path={RouteConstants.HOSPITAL_DETAILS} element={<HospitalDashboard />} />
+            <Route path={RouteConstants.SETTINGS} element={<DummyPage />} />
+            <Route path={RouteConstants.LOGOUT} element={<DummyPage />} />
             <Route path="*" element={<DummyPage />} />
           </Route>
         </Routes>
