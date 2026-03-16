@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
+  base: '/curalink/',
   cacheDir: './node_modules/.vite/curalink',
   server: {
     port: 4200,
