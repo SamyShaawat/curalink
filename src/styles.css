@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-teal: #1A919E;
+  --color-dark-teal: #127173;
+  --color-light-teal: #EDF7F8;
+  --color-bg-teal: #F4F9F9;
+  --color-text-dark: #2F3E46;
+  --color-text-light: #5A7E85;
+}
+
+body {
+  background-color: var(--color-bg-teal);
+  color: var(--color-text-dark);
+}
