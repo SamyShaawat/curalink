@@ -18,7 +18,8 @@
       "@pages/*": ["src/pages/*"],
       "@features/*": ["src/features/*"],
       "@services/*": ["src/services/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@enums/*": ["src/enums/*"]
     },
     "jsx": "react-jsx",
     "allowJs": false,
