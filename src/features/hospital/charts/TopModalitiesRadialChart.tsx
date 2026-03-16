@@ -2,7 +2,7 @@ import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
 export function TopModalitiesRadialChart({ data }: { data: { name: string; value: number }[] }) {
   return (
-    <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-sm border border-white/50 flex flex-col relative overflow-hidden">
+    <div className="bg-white/40 backdrop-blur-xl rounded-2xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/40 flex flex-col relative overflow-hidden">
       <h3 className="font-bold text-gray-700 text-sm mb-4 flex items-center gap-2">
         <div className="w-2 h-2 border-2 border-pink-400 rounded-full bg-transparent"></div> Top Modalities (Radial)
       </h3>

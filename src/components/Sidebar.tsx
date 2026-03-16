@@ -55,7 +55,7 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
   };
 
   return (
-    <div className="w-64 bg-white/90 backdrop-blur-xl h-full lg:h-screen border-r border-white flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] flex-shrink-0 relative z-20">
+    <div className="w-64 bg-white/40 backdrop-blur-xl h-full lg:h-screen border-r border-white/40 flex flex-col shadow-[8px_0_32px_-12px_rgba(0,0,0,0.1)] flex-shrink-0 relative z-20">
       <div className="p-6 hidden lg:block">
         <div className="flex items-center gap-2">
           <div className="text-teal-600">

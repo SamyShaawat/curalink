@@ -16,7 +16,7 @@ export interface Hospital {
 export function HospitalCard({ hospital }: { hospital: Hospital }) {
   return (
     <Link to={`${RouteConstants.HOSPITAL}/${hospital.id}`} className="block group">
-      <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-white/60 overflow-hidden flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div className="bg-white/40 backdrop-blur-xl rounded-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/40 overflow-hidden flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
         
         {/* Card Header */}
         <div className="bg-[#1A919E]/90 backdrop-blur-sm p-4 flex items-center justify-between">

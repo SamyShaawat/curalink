@@ -9,12 +9,18 @@ export function Layout() {
 
   return (
     <div className="flex min-h-screen bg-[#EAF5F5] font-sans antialiased relative overflow-hidden">
-      {/* Background decoration lines (wave abstraction) - Optional */}
-      <div className="absolute top-0 right-0 w-[80%] h-full opacity-40 pointer-events-none overflow-hidden hidden md:block">
-        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" className="w-full h-full text-teal-200 fill-current opacity-30">
-          <path d="M0 1000C150 700 300 900 600 500C900 100 1000 0 1000 0L1000 1000Z"></path>
-          <path d="M200 1000C300 600 500 800 800 400C1000 100 1000 0 1000 0L1000 1000Z" className="opacity-50 text-teal-100"></path>
-        </svg>
+      {/* Dynamic Background Elements for Glassmorphism */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-[10%] -right-[5%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#1A919E]/20 to-transparent blur-[120px]"></div>
+        <div className="absolute bottom-[5%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tr from-[#0BB68C]/15 to-transparent blur-[100px]"></div>
+        <div className="absolute top-[30%] left-[20%] w-[30%] h-[30%] rounded-full bg-gradient-to-b from-indigo-400/5 to-transparent blur-[80px]"></div>
+        
+        {/* Abstract lines (Optional but helps with movement) */}
+        <div className="absolute top-0 right-0 w-[80%] h-full opacity-30 pointer-events-none hidden md:block">
+          <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" className="w-full h-full text-teal-200 fill-current opacity-20">
+            <path d="M0 1000C150 700 300 900 600 500C900 100 1000 0 1000 0L1000 1000Z"></path>
+          </svg>
+        </div>
       </div>
 
       {/* Mobile Header */}

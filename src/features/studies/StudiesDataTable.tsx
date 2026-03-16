@@ -6,7 +6,7 @@ const tableData = [
 
 export function StudiesDataTable() {
   return (
-    <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-white/50 overflow-hidden">
+    <div className="bg-white/40 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border border-white/40 overflow-hidden">
       <div className="bg-[#197B82]/90 backdrop-blur-sm p-4 flex items-center justify-between text-white">
         <h2 className="font-bold text-lg">Search Results</h2>
         <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold">1000 studies</span>

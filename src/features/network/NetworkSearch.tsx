@@ -2,7 +2,7 @@ import { Search } from 'lucide-react';
 
 export function NetworkSearch({ count }: { count: number }) {
   return (
-    <div className="bg-white/90 backdrop-blur-md rounded-full px-4 sm:px-6 py-3 shadow-sm border border-white/50 flex items-center relative">
+    <div className="bg-white/40 backdrop-blur-xl rounded-full px-4 sm:px-6 py-3 shadow-sm border border-white/40 flex items-center relative">
       <Search className="w-5 h-5 text-gray-300 mr-2 sm:mr-3 absolute left-4 sm:left-5" />
       <input 
         type="text" 
