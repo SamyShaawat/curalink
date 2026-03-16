@@ -5,29 +5,26 @@
   <title>Redirecting to CuraLink...</title>
   <script>
     // Single Page Application redirect for GitHub Pages
+    // Preserve the full path so React Router can handle it
     (function() {
-      var redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      if (redirect && redirect !== location.href) {
-        history.replaceState(null, null, redirect);
-      }
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      
+      // Build the full path within /curalink/ base
+      // e.g., /curalink/hospital/2 -> /curalink/hospital/2
+      var fullPath = path + search + hash;
+      
+      // Store for React to potentially use
+      sessionStorage.redirect = fullPath;
+      
+      // Redirect to index.html with the path as a hash fragment
+      // React Router with basename will handle this
+      window.location.href = '/curalink/index.html' + path.replace('/curalink', '') + search + hash;
     })();
   </script>
-  <meta http-equiv="refresh" content="0; url=/curalink/">
 </head>
 <body>
-  <script>
-    // Save the current path and redirect to index.html
-    var path = window.location.pathname;
-    var search = window.location.search;
-    var hash = window.location.hash;
-    
-    // Store in sessionStorage for React Router to use
-    sessionStorage.redirect = path + search + hash;
-    
-    // Redirect to root
-    window.location.replace('/curalink/');
-  </script>
   <p>Redirecting to <a href="/curalink/">CuraLink</a>...</p>
 </body>
 </html>
