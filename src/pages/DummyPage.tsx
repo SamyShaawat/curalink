@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { TargetIcon } from '@components/common/TargetIcon';
+import { RouteConstants } from '@enums/route.constants';
+import { AppConstants } from '@enums/app.constants';
 
 export function DummyPage() {
   return (
@@ -8,16 +10,16 @@ export function DummyPage() {
         <TargetIcon className="w-16 h-16 text-gray-300" />
       </div>
       <div>
-        <h1 className="text-2xl font-bold text-[#2A4454] mb-2">Coming Soon</h1>
+        <h1 className="text-2xl font-bold text-[#2A4454] mb-2">{AppConstants.DUMMY_PAGE_TITLE}</h1>
         <p className="text-gray-500 max-w-md mx-auto">
-          This module is currently under development. Designs and functionality will be implemented in a future update.
+          {AppConstants.DUMMY_PAGE_DESC}
         </p>
       </div>
       <Link 
-        to="/dashboard"
+        to={RouteConstants.DASHBOARD}
         className="mt-4 px-6 py-2.5 bg-[#1A919E] hover:bg-[#127173] text-white font-bold rounded-full shadow-md shadow-[#1A919E]/20 transition-all active:scale-95"
       >
-        Return to Dashboard
+        {AppConstants.RETURN_TO_DASHBOARD}
       </Link>
     </div>
   );

@@ -1,5 +1,7 @@
 import { Building2, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { RouteConstants } from '@enums/route.constants';
+import { AppConstants } from '@enums/app.constants';
 
 export interface Hospital {
   id: number;
@@ -13,19 +15,20 @@ export interface Hospital {
 
 export function HospitalCard({ hospital }: { hospital: Hospital }) {
   return (
-    <Link to={`/hospital/${hospital.id}`} className="block group">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <Link to={`${RouteConstants.HOSPITAL}/${hospital.id}`} className="block group">
+      <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-sm border border-white/60 overflow-hidden flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
         
         {/* Card Header */}
-        <div className="bg-[#1A919E] p-4 flex items-center justify-between">
+        <div className="bg-[#1A919E]/90 backdrop-blur-sm p-4 flex items-center justify-between">
           <div className="flex items-center gap-3 text-white">
             <div className="border border-white/30 rounded-md p-1.5">
               <Building2 className="w-5 h-5 opacity-90" />
             </div>
             <h3 className="font-bold text-sm tracking-wide truncate max-w-[150px]">{hospital.name}</h3>
           </div>
-          <div className="bg-[#E2F5EE] text-[#0BB68C] text-[10px] uppercase font-extrabold px-2 py-0.5 rounded shadow-sm border border-[#0BB68C]/20 tracking-wider">
-            ACTIVE
+          <div className="flex items-center gap-1.5 text-white text-[10px] uppercase font-bold tracking-widest bg-white/10 px-2.5 py-1 rounded-full border border-white/20">
+            <div className="w-1.5 h-1.5 bg-[#0BB68C] rounded-full shadow-[0_0_4px_rgba(11,182,140,0.8)]"></div>
+            {AppConstants.STATUS_ACTIVE}
           </div>
         </div>
 
@@ -48,7 +51,7 @@ export function HospitalCard({ hospital }: { hospital: Hospital }) {
           </div>
 
           <div className="mb-4">
-            <div className="text-[10px] font-bold text-gray-400 mb-2 tracking-wider">MODALITIES</div>
+            <div className="text-[10px] font-bold text-gray-400 mb-2 tracking-wider">{AppConstants.MODALITIES}</div>
             <div className="flex flex-wrap gap-2">
               {hospital.modalities.map(m => (
                 <span key={m} className="text-xs font-bold text-[#1A919E] bg-[#1A919E]/10 p-1 px-3 border border-[#1A919E]/20 rounded-full">{m}</span>
@@ -57,7 +60,7 @@ export function HospitalCard({ hospital }: { hospital: Hospital }) {
           </div>
 
           <div className="mt-auto">
-            <div className="text-[10px] font-bold text-gray-400 mb-2 tracking-wider">DEPARTMENTS</div>
+            <div className="text-[10px] font-bold text-gray-400 mb-2 tracking-wider">{AppConstants.DEPARTMENTS}</div>
             <div className="flex flex-wrap gap-2">
               {hospital.departments.map(d => (
                 <span key={d} className="text-xs text-gray-500 font-medium bg-gray-100 p-1 px-3 rounded-full">{d}</span>

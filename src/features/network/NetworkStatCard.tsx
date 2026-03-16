@@ -1,6 +1,6 @@
 export function NetworkStatCard({ stat }: { stat: { label: string, value: string, sub?: string } }) {
   return (
-    <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+    <div className="bg-white/90 backdrop-blur-md rounded-xl p-5 shadow-sm border border-white/50 flex flex-col justify-between hover:shadow-md transition-shadow hover:bg-white/95">
       <h3 className="text-sm font-semibold text-gray-500 mb-2">{stat.label}</h3>
       <div className="flex items-end justify-between">
         <span className="text-4xl font-bold text-gray-800">{stat.value}</span>
