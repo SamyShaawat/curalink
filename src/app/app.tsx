@@ -5,17 +5,18 @@ import { NetworkDashboard } from '@pages/NetworkDashboard';
 import { StudiesPage } from '@pages/StudiesPage';
 import { HospitalDashboard } from '@pages/HospitalDashboard';
 import { DummyPage } from '@pages/DummyPage';
+import { RouteConstants } from '@enums/route.constants';
 
 export function App() {
   return (
     <StrictMode>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path={RouteConstants.HOME} element={<Navigate to={RouteConstants.DASHBOARD} replace />} />
           <Route element={<Layout />}>
-            <Route path="/dashboard" element={<NetworkDashboard />} />
-            <Route path="/studies" element={<StudiesPage />} />
-            <Route path="/hospital/:id" element={<HospitalDashboard />} />
+            <Route path={RouteConstants.DASHBOARD} element={<NetworkDashboard />} />
+            <Route path={RouteConstants.STUDIES} element={<StudiesPage />} />
+            <Route path={RouteConstants.HOSPITAL_DETAILS} element={<HospitalDashboard />} />
             <Route path="*" element={<DummyPage />} />
           </Route>
         </Routes>

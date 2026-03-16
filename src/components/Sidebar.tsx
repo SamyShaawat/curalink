@@ -2,42 +2,44 @@ import { Link, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Compass, Settings, Shield, LogOut, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { RouteConstants } from '@enums/route.constants';
+import { AppConstants } from '@enums/app.constants';
 
 const navGroups = [
   {
     title: 'Dashboard',
     icon: LayoutDashboard,
     items: [
-      { name: 'Hospitals Dashboard', path: '/dashboard' },
-      { name: 'Ain Shams Hospital', path: '/hospital/2' }
+      { name: 'Hospitals Dashboard', path: RouteConstants.DASHBOARD },
+      { name: 'Ain Shams Hospital', path: RouteConstants.HOSPITAL_AIN_SHAMS }
     ]
   },
   {
     title: 'Navigation',
     icon: Compass,
     items: [
-      { name: 'Smart Search', path: '/smart-search' },
-      { name: 'Patient', path: '/patient' },
-      { name: 'Studies', path: '/studies' }
+      { name: 'Smart Search', path: RouteConstants.SMART_SEARCH },
+      { name: 'Patient', path: RouteConstants.PATIENT },
+      { name: 'Studies', path: RouteConstants.STUDIES }
     ]
   },
   {
     title: 'Configuration',
     icon: Settings,
     items: [
-      { name: 'Devices', path: '/devices' },
-      { name: 'Application Entities (AE)', path: '/ae' },
-      { name: 'HL7 Application', path: '/hl7' },
-      { name: 'Routing Rules', path: '/routing' },
-      { name: 'Transform Rules', path: '/transform' },
-      { name: 'Export Rules', path: '/export' }
+      { name: 'Devices', path: RouteConstants.DEVICES },
+      { name: 'Application Entities (AE)', path: RouteConstants.AE },
+      { name: 'HL7 Application', path: RouteConstants.HL7 },
+      { name: 'Routing Rules', path: RouteConstants.ROUTING },
+      { name: 'Transform Rules', path: RouteConstants.TRANSFORM },
+      { name: 'Export Rules', path: RouteConstants.EXPORT }
     ]
   },
   {
     title: 'Administration',
     icon: Shield,
     items: [
-      { name: 'Users', path: '/users' }
+      { name: 'Users', path: RouteConstants.USERS }
     ]
   }
 ];
@@ -53,7 +55,7 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
   };
 
   return (
-    <div className="w-64 bg-white h-full lg:h-screen border-r border-gray-200 flex flex-col shadow-sm flex-shrink-0">
+    <div className="w-64 bg-white/90 backdrop-blur-xl h-full lg:h-screen border-r border-white flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] flex-shrink-0 relative z-20">
       <div className="p-6 hidden lg:block">
         <div className="flex items-center gap-2">
           <div className="text-teal-600">
@@ -64,8 +66,8 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
             </svg>
           </div>
           <div>
-            <h1 className="text-xl font-bold text-teal-600 tracking-tight leading-tight">CuraLink</h1>
-            <p className="text-[10px] text-teal-400 font-medium">where care connects</p>
+            <h1 className="text-xl font-bold text-teal-600 tracking-tight leading-tight">{AppConstants.APP_NAME}</h1>
+            <p className="text-[10px] text-teal-400 font-medium">{AppConstants.APP_SLOGAN}</p>
           </div>
         </div>
       </div>
@@ -92,7 +94,7 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
               {isOpen && (
                 <div className="mt-1 ml-4 pl-4 border-l-2 border-gray-100 space-y-1">
                   {group.items.map(item => {
-                    const isActive = location.pathname === item.path || (location.pathname.startsWith('/hospital') && item.path === '/hospital/2');
+                    const isActive = location.pathname === item.path || (location.pathname.startsWith(RouteConstants.HOSPITAL) && item.path === RouteConstants.HOSPITAL_AIN_SHAMS);
                     return (
                       <Link 
                         key={item.name}

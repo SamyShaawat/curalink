@@ -2,13 +2,14 @@ import { Sidebar } from '@components/Sidebar';
 import { Outlet } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { AppConstants } from '@enums/app.constants';
 
 export function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-[#F3F6F8] font-sans antialiased relative overflow-hidden">
-      {/* Background decoration lines (wave abstraction) */}
+    <div className="flex min-h-screen bg-[#EAF5F5] font-sans antialiased relative overflow-hidden">
+      {/* Background decoration lines (wave abstraction) - Optional */}
       <div className="absolute top-0 right-0 w-[80%] h-full opacity-40 pointer-events-none overflow-hidden hidden md:block">
         <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" className="w-full h-full text-teal-200 fill-current opacity-30">
           <path d="M0 1000C150 700 300 900 600 500C900 100 1000 0 1000 0L1000 1000Z"></path>
@@ -24,7 +25,7 @@ export function Layout() {
             <path d="M50 30c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 30c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z"></path>
           </svg>
           <div>
-            <h1 className="text-lg font-bold text-teal-600 tracking-tight leading-tight">CuraLink</h1>
+            <h1 className="text-lg font-bold text-teal-600 tracking-tight leading-tight">{AppConstants.APP_NAME}</h1>
           </div>
         </div>
         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-2 text-gray-500 hover:text-teal-600 hover:bg-teal-50 rounded-full transition-colors">
