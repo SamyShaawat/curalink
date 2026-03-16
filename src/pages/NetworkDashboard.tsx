@@ -48,7 +48,7 @@ export function NetworkDashboard() {
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 w-full">
       <HeaderBanner
         title="Network Dashboard"
-        icon={<Target className="w-6 h-6 text-[#14B8A6]" strokeWidth={2} />}
+        icon={<Target className="w-6 h-6 text-[#1A919E]" strokeWidth={2} />}
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">

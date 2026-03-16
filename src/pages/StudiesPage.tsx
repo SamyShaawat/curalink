@@ -8,7 +8,7 @@ export function StudiesPage() {
     <div className="space-y-6 animate-in fade-in pb-10">
       <HeaderBanner
         title="Studies"
-        icon={<FileText className="w-6 h-6 text-[#14B8A6]" strokeWidth={2} />}
+        icon={<FileText className="w-6 h-6 text-[#1A919E]" strokeWidth={2} />}
       />
 
       <StudiesFilterForm />
