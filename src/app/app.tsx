@@ -10,7 +10,7 @@ import { RouteConstants } from '@enums/route.constants';
 export function App() {
   return (
     <StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename={RouteConstants.BASE}>
         <Routes>
           <Route path={RouteConstants.HOME} element={<Navigate to={RouteConstants.DASHBOARD} replace />} />
           <Route element={<Layout />}>
