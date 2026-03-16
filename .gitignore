@@ -37,7 +37,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
+.nx/
 .nx/cache
 .nx/workspace-data
 
@@ -46,3 +46,6 @@ vitest.config.*.timestamp*
 
 # AI
 QWEN.md
+
+# Design assets
+figma/
