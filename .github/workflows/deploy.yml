@@ -35,6 +35,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Copy 404.html for SPA routing
+        run: cp ./dist/curalink/index.html ./dist/curalink/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

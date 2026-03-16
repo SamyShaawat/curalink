@@ -29,6 +29,12 @@ export default defineConfig(() => ({
     commonjsOptions: {
       transformMixedEsModules: true,
     },
+    // Copy 404.html for SPA routing support
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   test: {
     name: 'curalink',
